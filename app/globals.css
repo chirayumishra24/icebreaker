@@ -175,31 +175,31 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
 /* ========== FULLSCREEN BUTTON ========== */
 .fullscreen-btn {
   position: absolute;
-  top: 1.2rem;
+  top: 1.5rem;
   right: 1.5rem;
-  z-index: 500;
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: var(--white);
-  border: 2px solid var(--card-border);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  color: var(--text-mid);
-  font-size: 1.3rem;
-  cursor: pointer;
+  z-index: 9999; /* ensure it is above everything always */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; /* perfect circle */
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  color: var(--text-dark);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.25s ease;
-  font-family: var(--font);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
 }
 
 .fullscreen-btn:hover {
-  background: var(--orange);
-  color: white;
-  border-color: var(--orange);
-  transform: scale(1.08);
-  box-shadow: 0 4px 15px var(--orange-glow);
+  background: rgba(255, 255, 255, 0.85);
+  transform: scale(1.15) rotate(5deg);
+  box-shadow: 0 6px 25px rgba(249, 115, 22, 0.3);
+  color: var(--orange);
+  border-color: rgba(249, 115, 22, 0.4);
 }
 
 /* ========== WIZARD OVERLAY ========== */

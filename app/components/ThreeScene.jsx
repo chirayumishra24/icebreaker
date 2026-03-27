@@ -198,13 +198,59 @@ function StageFloor() {
   );
 }
 
-// ===== BACK WALL =====
-function BackWall() {
+// ===== STAGE ARCHITECTURE (Proscenium & Backstage) =====
+function StageArchitecture() {
   return (
-    <mesh position={[0, 4, -10]}>
-      <planeGeometry args={[30, 18]} />
-      <meshStandardMaterial color="#c7d2fe" roughness={0.9} />
-    </mesh>
+    <group>
+      {/* Proscenium Arch (Front structural frame) */}
+      <group position={[0, 4, -5.5]}>
+        {/* Left Pillar */}
+        <mesh position={[-14, 0, 0]}>
+          <boxGeometry args={[4, 16, 2]} />
+          <meshStandardMaterial color="#451a03" roughness={0.8} /> {/* Dark wood/brick */}
+        </mesh>
+        {/* Right Pillar */}
+        <mesh position={[14, 0, 0]}>
+          <boxGeometry args={[4, 16, 2]} />
+          <meshStandardMaterial color="#451a03" roughness={0.8} />
+        </mesh>
+        {/* Top Header */}
+        <mesh position={[0, 7, 0]}>
+          <boxGeometry args={[32, 2, 2.5]} />
+          <meshStandardMaterial color="#451a03" roughness={0.8} />
+        </mesh>
+      </group>
+
+      {/* Backstage Depth (Darker area behind curtains) */}
+      <group position={[0, 4, -10]}>
+        {/* Far Back Wall */}
+        <mesh position={[0, 0, -5]}>
+          <planeGeometry args={[30, 20]} />
+          <meshStandardMaterial color="#1e1b4b" roughness={0.9} /> {/* Deep dark blue/purple */}
+        </mesh>
+        
+        {/* Left Backstage Wall */}
+        <mesh position={[-15, 0, 0]} rotation={[0, Math.PI / 2, 0]}>
+          <planeGeometry args={[10, 20]} />
+          <meshStandardMaterial color="#171717" roughness={0.9} /> {/* Dark grey */}
+        </mesh>
+
+        {/* Right Backstage Wall */}
+        <mesh position={[15, 0, 0]} rotation={[0, -Math.PI / 2, 0]}>
+          <planeGeometry args={[10, 20]} />
+          <meshStandardMaterial color="#171717" roughness={0.9} />
+        </mesh>
+        
+        {/* Backstage Floor (Dark wood) */}
+        <mesh position={[0, -6.9, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+          <planeGeometry args={[30, 10]} />
+          <meshStandardMaterial color="#291a10" roughness={0.8} /> 
+        </mesh>
+
+        {/* Subtle Backstage light */}
+        <pointLight position={[0, 2, -2]} intensity={0.5} color="#a5b4fc" distance={20} />
+      </group>
+    </group>
   );
 }
 
@@ -745,7 +791,7 @@ function StageTitle() {
   const currentStudent = showStudentInfo ? students[currentStudentIndex] : null;
 
   return (
-    <group position={[0, 5, -9.8]}>
+    <group position={[0, 5, -14.8]}>
       {/* Chalkboard Board */}
       <mesh position={[0, 0, 0]}>
         <boxGeometry args={[12, 4, 0.2]} />
@@ -807,7 +853,7 @@ function GameShowScene() {
 
       {/* Structure */}
       <StageFloor />
-      <BackWall />
+      <StageArchitecture />
       <CenterStage />
       <Curtain side="left" />
       <Curtain side="right" />
