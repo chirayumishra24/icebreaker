@@ -10,14 +10,13 @@ const PHASE_ORDER = [
   PHASES.SPOTLIGHT, PHASES.MEMORY_CHAIN, PHASES.FINALE,
 ];
 
-// Background config per phase
-const PHASE_BG = {
-  [PHASES.WELCOME]: { image: '/hero-banner.png', className: 'bg-scene bg-welcome' },
-  [PHASES.SONG]: { image: '/bg-kids-line.png', className: 'bg-scene bg-song' },
-  [PHASES.ADD_STUDENT]: { image: '/bg-kids-line.png', className: 'bg-scene bg-add' },
-  [PHASES.SPOTLIGHT]: { image: '/bg-kids-line.png', className: 'bg-scene bg-spotlight' },
-  [PHASES.MEMORY_CHAIN]: { image: '/bg-kids-line.png', className: 'bg-scene bg-chain' },
-  [PHASES.FINALE]: { image: '/kids-celebrating.png', className: 'bg-scene bg-finale' },
+// Comic character images per phase
+const PHASE_CHARACTERS = {
+  [PHASES.WELCOME]: '/comic-mentor.png',
+  [PHASES.SONG]: '/comic-singing.png',
+  [PHASES.SPOTLIGHT]: '/comic-spotlight.png',
+  [PHASES.MEMORY_CHAIN]: '/comic-chain.png',
+  [PHASES.FINALE]: '/comic-celebrate.png',
 };
 
 export default function DisplayOverlay({ isFullscreen, toggleFullscreen }) {
@@ -113,15 +112,11 @@ export default function DisplayOverlay({ isFullscreen, toggleFullscreen }) {
 
       {/* Fullscreen */}
       <button className="fullscreen-btn" onClick={handleToggleFullscreen} title={isFullscreen ? 'Exit Fullscreen' : 'Go Fullscreen'}>
-        {isFullscreen ? (
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3" />
-          </svg>
-        ) : (
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M8 3H5a2 2 0 0 0-2 2v3m18-5h-3a2 2 0 0 0-2 2v3m0 8v3a2 2 0 0 0 2 2h3M3 16v3a2 2 0 0 0 2 2h3" />
-          </svg>
-        )}
+        <img
+          src={isFullscreen ? '/icon-exit-fullscreen.png' : '/icon-fullscreen.png'}
+          alt={isFullscreen ? 'Exit Fullscreen' : 'Go Fullscreen'}
+          className="fullscreen-icon"
+        />
       </button>
 
       {/* Progress dots */}
@@ -142,6 +137,7 @@ export default function DisplayOverlay({ isFullscreen, toggleFullscreen }) {
         {/* ===== WELCOME ===== */}
         {phase === PHASES.WELCOME && (
           <div className="step-card compact" key="welcome">
+            <img src={PHASE_CHARACTERS[PHASES.WELCOME]} alt="Mentor" className="comic-character comic-character-lg" />
             <h1 className="step-title-orange" style={{ fontSize: '2.2rem', marginBottom: '0.3rem' }}>
               Jump In, Jump Out!
             </h1>
@@ -167,6 +163,7 @@ export default function DisplayOverlay({ isFullscreen, toggleFullscreen }) {
         {/* ===== SONG TIME ===== */}
         {phase === PHASES.SONG && (
           <div className="step-card compact narrow" key="song">
+            <img src={PHASE_CHARACTERS[PHASES.SONG]} alt="Singing" className="comic-character comic-character-md" />
             <div className="step-badge">Step 1 — Sing Together</div>
             <h1 className="step-title-orange" style={{ fontSize: '1.6rem', marginBottom: '0.2rem' }}>🎤 Song Time!</h1>
             <p className="step-subtitle" style={{ marginBottom: '0.5rem', fontSize: '0.9rem' }}>
@@ -254,6 +251,7 @@ export default function DisplayOverlay({ isFullscreen, toggleFullscreen }) {
         {/* ===== SPOTLIGHT ===== */}
         {phase === PHASES.SPOTLIGHT && currentStudent && (
           <div className="step-card compact" key={`spotlight-${currentStudent.id}`}>
+            <img src={PHASE_CHARACTERS[PHASES.SPOTLIGHT]} alt="Spotlight" className="comic-character comic-character-sm" />
             <div className="step-badge">Everyone Sing! 🎶</div>
             <div className="lyrics-box" style={{ marginBottom: '1rem', padding: '1rem 1.5rem' }}>
               {SONG_LYRICS.map((line, i) => (
@@ -287,6 +285,7 @@ export default function DisplayOverlay({ isFullscreen, toggleFullscreen }) {
         {/* ===== MEMORY CHAIN ===== */}
         {phase === PHASES.MEMORY_CHAIN && (
           <div className="step-card compact wide" key="memory-chain">
+            <img src={PHASE_CHARACTERS[PHASES.MEMORY_CHAIN]} alt="Chain" className="comic-character comic-character-sm" />
             <div className="step-badge">Memory Chain 🔗</div>
             <h1 className="step-title" style={{ fontSize: '2rem', marginBottom: '0.3rem' }}>
               {students.length} Action{students.length > 1 ? 's' : ''} Learned!
@@ -335,6 +334,7 @@ export default function DisplayOverlay({ isFullscreen, toggleFullscreen }) {
         {/* ===== GRAND FINALE ===== */}
         {phase === PHASES.FINALE && (
           <div className="step-card compact wide" key="finale">
+            <img src={PHASE_CHARACTERS[PHASES.FINALE]} alt="Celebrate" className="comic-character comic-character-lg" />
             <div className="celebration-title">🎉 Amazing Job! 🎉</div>
             <div className="celebration-sub">
               You remembered {students.length} action{students.length > 1 ? 's' : ''}!
