@@ -112,11 +112,21 @@ export default function DisplayOverlay({ isFullscreen, toggleFullscreen }) {
 
       {/* Fullscreen */}
       <button className="fullscreen-btn" onClick={handleToggleFullscreen} title={isFullscreen ? 'Exit Fullscreen' : 'Go Fullscreen'}>
-        <img
-          src={isFullscreen ? '/icon-exit-fullscreen.png' : '/icon-fullscreen.png'}
-          alt={isFullscreen ? 'Exit Fullscreen' : 'Go Fullscreen'}
-          className="fullscreen-icon"
-        />
+        {isFullscreen ? (
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="4 14 10 14 10 20" />
+            <polyline points="20 10 14 10 14 4" />
+            <line x1="14" y1="10" x2="21" y2="3" />
+            <line x1="3" y1="21" x2="10" y2="14" />
+          </svg>
+        ) : (
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="15 3 21 3 21 9" />
+            <polyline points="9 21 3 21 3 15" />
+            <line x1="21" y1="3" x2="14" y2="10" />
+            <line x1="3" y1="21" x2="10" y2="14" />
+          </svg>
+        )}
       </button>
 
       {/* Progress dots */}
@@ -170,7 +180,7 @@ export default function DisplayOverlay({ isFullscreen, toggleFullscreen }) {
               Everyone sing and do the actions together!
             </p>
             {/* Actual song plays via YouTube */}
-            <div className="video-wrapper" style={{ maxWidth: '300px', marginBottom: '0.5rem' }}>
+            <div className="video-wrapper" style={{ marginBottom: '0.5rem' }}>
               <iframe
                 src={songAutoplayURL}
                 title="Jump In Jump Out Song"
