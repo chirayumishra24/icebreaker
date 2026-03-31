@@ -200,20 +200,28 @@ export default function DisplayOverlay({ isFullscreen, toggleFullscreen }) {
           </div>
         )}
 
-        {/* ===== APPRECIATION WINDOW ===== */}
+        {/* ===== APPRECIATION SLIDES ===== */}
         {phase === PHASES.ADD_STUDENT && currentAppreciation && (
-          <div className="step-card compact" key={`appreciation-${appreciationIndex}`}>
+          <div className="step-card compact wide" key={`appreciation-${appreciationIndex}`}>
             <div className="step-badge">
-              Appreciation {appreciationIndex + 1} of {APPRECIATIONS.length}
+              Slide {appreciationIndex + 1} of {APPRECIATIONS.length}
             </div>
 
-            <div className="appreciation-card" style={{ '--accent-color': currentAppreciation.color }}>
-              <div className="appreciation-emoji">{currentAppreciation.emoji}</div>
-              <h1 className="appreciation-title">{currentAppreciation.title}</h1>
-              <p className="appreciation-message">{currentAppreciation.message}</p>
+            <div className="slide-wrapper">
+              <img
+                src={currentAppreciation.image}
+                alt={currentAppreciation.title}
+                className="slide-image"
+              />
+              <div className="slide-caption" style={{ '--accent-color': currentAppreciation.color }}>
+                <span className="slide-caption-emoji">{currentAppreciation.emoji}</span>
+                <span className="slide-caption-title">{currentAppreciation.title}</span>
+              </div>
             </div>
 
-            {/* Progress bar */}
+            <p className="appreciation-message">{currentAppreciation.message}</p>
+
+            {/* Progress dots */}
             <div className="appreciation-progress">
               {APPRECIATIONS.map((_, i) => (
                 <div
@@ -224,12 +232,12 @@ export default function DisplayOverlay({ isFullscreen, toggleFullscreen }) {
             </div>
 
             <div className="appreciation-hint">
-              ⏎ Press <strong>Enter</strong> for next appreciation
+              ⏎ Press <strong>Enter</strong> for next slide
             </div>
 
             <div className="btn-row">
               <button className="btn btn-lg btn-primary" onClick={handleAdvanceAppreciation}>
-                {appreciationIndex < APPRECIATIONS.length - 1 ? '✨ Next' : '🎉 Grand Finale!'}
+                {appreciationIndex < APPRECIATIONS.length - 1 ? '✨ Next Slide' : '🎉 Grand Finale!'}
               </button>
             </div>
           </div>

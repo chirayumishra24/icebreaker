@@ -43,16 +43,16 @@ export const CONTENT_IMAGES = {
 // YouTube video
 export const VIDEO_URL = 'https://www.youtube.com/embed/OlPA54vHmpI?list=PLvEb8AA7B8J_-p-YsARyZUyogz0X9aNyX';
 
-// Appreciation messages (10 windows)
+// Appreciation slides (10 image slides)
 export const APPRECIATIONS = [
-  { emoji: '🌟', title: 'Superstar!', message: 'You shine brighter than a thousand stars! Keep being amazing!', color: '#FFD700' },
-  { emoji: '🚀', title: 'Sky\'s the Limit!', message: 'You\'re reaching for the stars and beyond! Nothing can stop you!', color: '#2196F3' },
-  { emoji: '🦁', title: 'Brave Heart!', message: 'You faced every challenge with courage today. So proud of you!', color: '#FF9800' },
-  { emoji: '🎨', title: 'Creative Genius!', message: 'Your ideas are so unique and wonderful. The world needs your creativity!', color: '#9C27B0' },
-  { emoji: '💪', title: 'Never Give Up!', message: 'Even when it gets tough, you keep trying. That\'s real strength!', color: '#E91E63' },
-  { emoji: '🤝', title: 'Best Team Player!', message: 'You helped your friends and made everyone feel included. True champion!', color: '#00BCD4' },
-  { emoji: '📚', title: 'Knowledge Explorer!', message: 'Your curiosity is your superpower. Keep asking questions and learning!', color: '#4CAF50' },
-  { emoji: '😊', title: 'Kindness King!', message: 'Your smile and kind words made everyone\'s day better. Keep spreading joy!', color: '#F44336' },
-  { emoji: '🏆', title: 'Champion Effort!', message: 'It\'s not about winning — it\'s about trying your best. And you did!', color: '#FF5722' },
-  { emoji: '🌈', title: 'You\'re Awesome!', message: 'Remember: there\'s no one else like YOU. The world is lucky to have you!', color: '#673AB7' },
+  { emoji: '🌟', title: 'Superstar!', message: 'You shine brighter than a thousand stars! Keep being amazing!', color: '#FFD700', image: '/slides/slide-01-superstar.png' },
+  { emoji: '🚀', title: 'Sky\'s the Limit!', message: 'You\'re reaching for the stars and beyond! Nothing can stop you!', color: '#2196F3', image: '/slides/slide-02-skys-the-limit.png' },
+  { emoji: '🦁', title: 'Brave Heart!', message: 'You faced every challenge with courage today. So proud of you!', color: '#FF9800', image: '/slides/slide-03-brave-heart.png' },
+  { emoji: '🎨', title: 'Creative Genius!', message: 'Your ideas are so unique and wonderful. The world needs your creativity!', color: '#9C27B0', image: '/slides/slide-04-creative-genius.png' },
+  { emoji: '💪', title: 'Never Give Up!', message: 'Even when it gets tough, you keep trying. That\'s real strength!', color: '#E91E63', image: '/slides/slide-05-never-give-up.png' },
+  { emoji: '🤝', title: 'Best Team Player!', message: 'You helped your friends and made everyone feel included. True champion!', color: '#00BCD4', image: '/slides/slide-06-team-player.png' },
+  { emoji: '📚', title: 'Knowledge Explorer!', message: 'Your curiosity is your superpower. Keep asking questions and learning!', color: '#4CAF50', image: '/slides/slide-07-knowledge-explorer.png' },
+  { emoji: '😊', title: 'Kindness King!', message: 'Your smile and kind words made everyone\'s day better. Keep spreading joy!', color: '#F44336', image: '/slides/slide-08-kindness-king.png' },
+  { emoji: '🏆', title: 'Champion Effort!', message: 'It\'s not about winning — it\'s about trying your best. And you did!', color: '#FF5722', image: '/slides/slide-09-champion-effort.png' },
+  { emoji: '🌈', title: 'You\'re Awesome!', message: 'Remember: there\'s no one else like YOU. The world is lucky to have you!', color: '#673AB7', image: '/slides/slide-10-youre-awesome.png' },
 ];
