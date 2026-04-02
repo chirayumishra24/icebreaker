@@ -1021,11 +1021,11 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
 }
 
 .slide-image {
+  object-fit: cover;
   width: 100%;
   height: auto;
+  max-height: 1100px;
   display: block;
-  object-fit: cover;
-  max-height: 50vh;
 }
 
 .slide-caption {
